@@ -1,0 +1,129 @@
+/* IMPORTACIÓN DE FUENTES */
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+/* ESTILOS GENERALES */
+body, html {
+    height: 100%;
+    margin: 0;
+    font-family: 'Press Start 2P', cursive;
+    background-color: #FFB6C1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+/* CONTENEDOR 3D */
+.scene {
+    width: 300px;
+    height: 200px;
+    perspective: 1000px;
+}
+
+.envelope {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+    cursor: pointer;
+}
+
+.envelope-front, .envelope-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.envelope-front {
+    background-color: #F4A460;
+}
+
+.envelope-back {
+    background-color: #DEB887;
+    transform: rotateY(180deg);
+}
+
+/* CORAZÓN ANIMADO */
+.heart {
+    width: 50px;
+    height: 50px;
+    background-color: #8B0000;
+    transform: rotate(-45deg);
+    animation: throb 1s ease-in-out infinite;
+}
+
+.heart::before, .heart::after {
+    content: "";
+    width: 50px;
+    height: 50px;
+    background-color: #8B0000;
+    border-radius: 50%;
+    position: absolute;
+}
+
+.heart::before {
+    top: -25px;
+}
+
+.heart::after {
+    left: 25px;
+}
+
+@keyframes throb {
+    0%, 100% { transform: rotate(-45deg) scale(1); }
+    50% { transform: rotate(-45deg) scale(1.1); }
+}
+
+/* ESTILO DE LA CARTA */
+.letter {
+    background-color: #FFFAFA;
+    padding: 20px;
+    width: 90%;
+    height: 90%;
+    box-sizing: border-box;
+    overflow-y: auto;
+    font-size: 10px;
+    line-height: 1.5;
+    color: #8B0000;
+}
+
+/* EMOTICONOS DE GATOS */
+.cat-emoticons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+    font-size: 24px;
+}
+
+.kawaii-heart {
+    margin: 0 10px;
+    font-size: 20px;
+    color: #FF69B4;
+    animation: pulse 1s infinite alternate;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    100% { transform: scale(1.2); }
+}
+
+/* TULIPANES ANIMADOS */
+.tulip {
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAG5JREFUOE9jZKAQMFKon2HUAAYGhv81jAxbpaWlP6JrRjEgLS3NQFpaehIDA8NRBgaGLAYGhk4GBoYpVRkZO9ENwWoAzBBkbmVGxhRcLiHKC+heQTcEnxeINoAYL+A0gJAX8BpAyAv4DSBkAMVZGQBU2SIRyIdTcQAAAABJRU5ErkJggg==');
+    background-size: contain;
+    animation: sway 2s ease-in-out infinite alternate;
+}
+
+@keyframes sway {
+    0% { transform: translateX(0) rotate(0deg); }
+    100% { transform: translateX(5px) rotate(5deg); }
+}
